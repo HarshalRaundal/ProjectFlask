@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PY-API</title>
+    <link href="{{ url_for('static',filename='styles/index.css') }}" type="text/css" rel="stylesheet">
+
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="login card">
+	<h1>Predict Car Price</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+<div class="form-container">
+            <form action="{{ url_for('predict')}}"method="post">
+
+   <div class="form-group row">
+       <label  for="enginelocation">Choose enginelocation:</label>
+        <select id="enginelocation" name="enginelocation">
+          <option value="front">Front</option>
+          <option value="rear">Rear</option>
+        </select>
+   </div>
+      <div class="form-group row">
+        <label for="fuel">Choose fueltype:</label>
+        <select id="fuel" name="fuel">
+          <option value="gas">Gas</option>
+          <option value="diesel">Diesel</option>
+        </select>
+          </div>
+            <div class="form-group row">
+        <label for="aspiration">Choose aspiration:</label>
+        <select id="aspiration" name="aspiration" class="custom-select mr-sm-2">
+          <option value="std">Standard</option>
+          <option value="turbo">Turbo</option>
+        </select>
+                 </div>
+             <div class="form-group row">
+        <label for="brand-name">Choose Brand:</label>
+        <select id="brand-name" name="brand-name" class="custom-select mr-sm-2">
+          <option value="alfa-romeo">alpha-romeo</option>
+           <option value="audi">audi</option>
+             <option value="bmw">bmw</option>
+             <option value="buick">buick</option>
+             <option value="chevrolet">chevrolet</option>
+             <option value="dodge">dodge</option>
+             <option value="honda">honda</option>
+             <option value="isuzu">isuzu</option>
+             <option value="jaguar">jaguar</option>
+             <option value="mazda">mazda</option>
+             <option value="mercury">mercury</option>
+            <option value="mitsubishi">mitsubishi</option>
+             <option value="nissan">nissan</option>
+             <option value="peugeot">peugeot</option>
+             <option value="porshe">porshe</option>
+             <option value="renault">renault</option>
+             <option value="saab">saab</option>
+             <option value="subaru">subaru</option>
+             <option value="toyota">toyota</option>
+             <option value="volkswagen">volkswagen</option>
+             <option value="volvo">volvo</option>
+
+        </select>
+                 </div>
+        <button type="submit" class="btn btn-primary">Predict</button>
+
+        </form>
+</div>
+
+   <br>
+   <br>
+    <div>{{ prediction_text }}</div>
+
+
+   <br>
+   <br>
+    <div class="prev-data">
+    <a href=getData>
+    <button type="button"  class="btn btn-primary">Check previous data </button>
+    </a>
+</div>
+ </div>
+
+</body>
+</html>
